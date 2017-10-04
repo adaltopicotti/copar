@@ -1,6 +1,91 @@
 {% extends 'copar/base.html' %}
 
 {% block content %}
-    <p>Hi there!</p>
-    <p>It works!</p>
+  <div class="container-fluid">
+    <div class="col-md-12 col-md-offset-3">
+      <form method="POST" name="cotador" id="cotador" class="post-form">{% csrf_token %}
+        <div class="form-group">
+
+            <button type="submit" class="btn btn-default">
+                    Calcular
+                </button>
+          <!-- Begin Subpage 1 -->
+          <div class="row">
+            <div class="col-md-3">
+              <input name="ind" id="ind" value="{{validator}}"> <br>
+              <label for="lbl_product">Produto: {{product}} - Page: {{index}}</label>
+              <select name="product" class="form-control" >
+                {% for product in products %}
+                  <option value="{{product.id}}" {% if product.id == product_sel %}selected {% endif %}>{{product.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <br>
+          <!-- BEGIN ROW 1-->
+          <div class="row">
+            <div class="col-md-2">
+              <label for="lbl_cpf">CPF:</label>
+              {% if cpf_cnpj %}
+                <input name="cpf_cnpj" id="cpf_cnpj" type="text" class="form-control" value="{{cpf_cnpj}}" onchange="validar()">
+              {% else %}
+                <input name="cpf_cnpj" id="cpf_cnpj" type="text" class="form-control" onchange="validar()">
+                {% if cpf_error == True %}
+                <p>CPF Inválido</p>
+                {% endif %}
+              {% endif %}
+            </div>
+            <div class="col-md-3">
+              <label for="lbl_insured_name">Nome do Segurado:</label>
+                <input name="insured_name" type="text" class="form-control"{% if insured_name %} value="{{insured_name}}" disabled {% endif %}>
+            </div>
+          </div>
+          <!-- END ROW 1-->
+          <br>
+          <!-- BEGIN ROW 2-->
+          <div class="row">
+            <div class="col-md-2">
+              <label for="lbl_uf">Estado</label>
+              <select name="uf" class="form-control" onchange="validar()">
+                {% for uf in ufs %}
+                <option value="{{uf.id}}" {% if uf.id == uf_sel %}selected {% endif %}>{{uf.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="lbl_city">Município</label>
+              <select name="city" class="form-control" onchange="validar()">
+                {% for city in cities %}
+                  <option value="{{city.id}}" {% if city.id == city_sel %}selected {% endif %}>{{city.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <!-- END ROW 2-->
+          <br>
+          <!-- BEGIN ROW 3-->
+          <div class="row">
+            <div class="col-md-2">
+              <label for="lbl_city">Nível de Cobertura</label>
+              <select name="lvl_cob" class="form-control" onchange="validar()">
+                {% for lvl_cob in lvl_cobs %}
+                  <option value="{{lvl_cob.id}}" {% if lvl_cob.id == lvl_cob_sel %}selected {% endif %}>{{lvl_cob.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-1">
+              <label for="lbl_area">Área:</label>
+                <input name="area" type="text" class="form-control" {% if area %} value="{{area}}" {% endif %}>
+          </div>
+          <div class="col-md-2">
+              <label for="lbl_price_sack">Preço da Saca:</label>
+                <input name="sack_price" type="text" class="form-control" {% if sack_price %} value="{{sack_price}}"{% endif %}>
+          </div>
+          <!-- END ROW 3-->
+        </div>
+        <!-- End Subpage 1 -->
+      </form>
+    </div> <!-- Fim painel do formulário -->
+</div>
+  {% endif %}
 {% endblock %}
