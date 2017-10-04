@@ -25,7 +25,7 @@ SECRET_KEY = '0)gsrr8_37*t^z-4)tb90-5@g6cn0#435@wly65^d-vzf5tj#+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '<your_username>.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '4logic.pythonanywhere.com']
 
 
 # Application definition
