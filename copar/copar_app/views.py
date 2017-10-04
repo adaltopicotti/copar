@@ -5,4 +5,4 @@ def questionnaire2(request):
     return 'teste'
 
 def questionnaire(request):
-    return render(request, 'copar_app/base.html', {})
+    return render(request, 'copar/base.html', {})
