@@ -11,9 +11,9 @@
                 </button>
           <!-- Begin Subpage 1 -->
           <div class="row">
+            <label for="lbl_product"><strong>Endereço de Risco</strong></label>
             <div class="col-md-3">
-              <input name="ind" id="ind" value="{{validator}}"> <br>
-              <label for="lbl_product">Produto: {{product}} - Page: {{index}}</label>
+              <label for="lbl_product">CEP</label>
               <select name="product" class="form-control" >
                 {% for product in products %}
                   <option value="{{product.id}}" {% if product.id == product_sel %}selected {% endif %}>{{product.name}}</option>
