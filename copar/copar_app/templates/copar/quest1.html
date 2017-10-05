@@ -53,10 +53,13 @@
             </div>
           </div>
           <!-- END ROW 2-->
-          <br>
-          <!-- BEGIN ROW 3-->
-          <h2><strong>Endereço da Matriz</strong></h2>
-                        <label for="lbl_product">CEP</label>
+          <br
+        <!-- Begin Subpage 1 -->
+          <div class="row">
+            
+            <div class="col-md-2">
+              <h2><strong>Endereço de Risco</strong></h2>
+              <label for="lbl_product">CEP</label>
                 {% if cpf_cnpj %}
                   <input name="cpf_cnpj" id="cpf_cnpj" type="text" class="form-control" value="{{cpf_cnpj}}" onchange="validar()">
                 {% else %}
@@ -94,8 +97,6 @@
                   <input name="insured_name" type="text" class="form-control">
             </div>
           </div>
-          <!-- END ROW 3-->
-        </div>
         <!-- End Subpage 1 -->
       </form>
     </div> <!-- Fim painel do formulário -->
