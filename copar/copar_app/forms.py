@@ -7,7 +7,7 @@ from bootstrap_toolkit.widgets import BootstrapDateInput, BootstrapTextInput, Bo
 class EmpresarialQuestForm(forms.ModelForm):
 
 
-    risco_cep  = forms.CharField(label = "1) Endereço completo com CEP do risco e da matriz.", widget=forms.TextInput(attrs={'size': '70'}))
+    risco_cep  = forms.CharField(label = "1) Endereço completo com CEP do risco e da matriz.", widget=forms.TextInput(attrs={'class' : 'form-control'}))
     area_predios  = forms.CharField(label = "2) Metragem quadrada construída de cada prédio.", widget=forms.TextInput(attrs={'size': '70'}))
     valor_estoque  = forms.CharField(label = "3) Qual o valor de estoque? (acabado ou insumo por local).", widget=forms.TextInput(attrs={'size': '70'}))
     valor_maquinas  = forms.CharField(label = "4) Qual o valor de máquinas, móveis e utensílios em cada prédio? (ou ao todo se não for possível).", widget=forms.TextInput(attrs={'size': '70'}))
