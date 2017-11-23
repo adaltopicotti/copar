@@ -1,12 +1,11 @@
 {% extends 'copar/base.html' %}
 
 {% block content %}
-<form method="POST">
+{% load bootstrap_toolkit %}
+<form method="POST" >
     {% csrf_token %}
 
-
-
-    {{ form.as_p}}
+    {% bootstrap_form form layout="vertical" %}
 
     <input type='submit' value='Registrar' />
    </form>

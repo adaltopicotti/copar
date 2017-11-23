@@ -1,5 +1,6 @@
 from django import forms
 from .models import EmpresarialQuest
+from bootstrap_toolkit.widgets import BootstrapDateInput, BootstrapTextInput, BootstrapUneditableInput
 
 
 
@@ -83,5 +84,4 @@ class EmpresarialQuestForm(forms.ModelForm):
        "historico_acidente",
        "cob_ultimo_seguro",
        "seguro_negado",
-
         )
