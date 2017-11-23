@@ -1,12 +1,29 @@
 {% extends 'copar/base.html' %}
 
 {% block content %}
-{% load bootstrap_toolkit %}
-<form method="POST" >
-    {% csrf_token %}
 
-    {% bootstrap_form form layout="vertical" %}
+<div class="container-fluid">
+  <div class="col-md-12 col-md-offset-3">
+    <form method="POST" class="post-form">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-3">
+          {{field.label}}
+        </div>
+        <div class="col-md-10">
+          {{field}}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
 
     <input type='submit' value='Registrar' />
    </form>
+  </div>
+</div>
+
+
+
 {% endblock %}
