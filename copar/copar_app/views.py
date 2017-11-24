@@ -3,7 +3,7 @@ from .models import EmpresarialQuest
 from .forms import EmpresarialQuestForm
 # Create your views here.
 def home(request):
-    return render(request, "copar/base.html", {})
+    return render(request, "copar/home.html", {})
 
 def questionnaire_emp(request):
 
