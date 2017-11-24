@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.utils import timezone, datetime
+from django.utils import timezone
+import datetime
 from .models import EmpresarialQuest
 from .forms import EmpresarialQuestForm
 # Create your views here.
