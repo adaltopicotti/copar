@@ -53,6 +53,6 @@ class EmpresarialQuest(models.Model):
     seguro_negado = models.CharField(max_length=200, null=False)
     insert_date = models.DateTimeField(
             blank=True, null=True)
-    self.published_date = timezone.now()
+    self.insert_date = timezone.now()
     def __str__(self):
         return self.cliente
