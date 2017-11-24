@@ -86,5 +86,4 @@ class EmpresarialQuestForm(forms.ModelForm):
        "historico_acidente",
        "cob_ultimo_seguro",
        "seguro_negado",
-        "insert_date",
         )
