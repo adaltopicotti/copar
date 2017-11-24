@@ -51,7 +51,8 @@ class EmpresarialQuest(models.Model):
     historico_acidente = models.CharField(max_length=500, null=False)
     cob_ultimo_seguro = models.CharField(max_length=200, null=False)
     seguro_negado = models.CharField(max_length=200, null=False)
-
-
+    insert_date = models.DateTimeField(
+            blank=True, null=True)
+    self.published_date = timezone.now()
     def __str__(self):
         return self.cliente
