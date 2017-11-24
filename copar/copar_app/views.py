@@ -16,7 +16,7 @@ def emp_questionnaire(request):
             new.id = last_reg.id + 1
             new.insert_date = timezone.now()
             new.save()
-            return HttpResponseRedirect("/") # redireciona para a tela de login
+            return render(request, "copar/home.html", {"date":timezone.now()}) # redireciona para a tela de login
         else:
             # mostra novamente o formulario de cadastro com os erros do formulario atual
             return render(request, "copar/quest_emp.html", {"form": form})
