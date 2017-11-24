@@ -4,6 +4,7 @@ from django.utils import timezone
 
 class EmpresarialQuest(models.Model):
     #client = models.ForeignKey('cliente.sss')
+    cliente = models.CharField(max_length=200, null=False)
     risco_cep = models.CharField(max_length=8, null=False)
     area_predios = models.CharField(max_length=200, null=False)
     valor_estoque = models.CharField(max_length=200, null=False)
@@ -53,4 +54,4 @@ class EmpresarialQuest(models.Model):
 
 
     def __str__(self):
-        return 10500000 + self.id
+        return self.cliente

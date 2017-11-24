@@ -6,7 +6,7 @@ from bootstrap_toolkit.widgets import BootstrapDateInput, BootstrapTextInput, Bo
 
 class EmpresarialQuestForm(forms.ModelForm):
 
-
+    cliente  = forms.CharField(label = "1) Cliente", widget=forms.TextInput(attrs={'class' : 'form-control'}))
     risco_cep  = forms.CharField(label = "1) Endereço completo com CEP do risco e da matriz.", widget=forms.TextInput(attrs={'class' : 'form-control'}))
     area_predios  = forms.CharField(label = "2) Metragem quadrada construída de cada prédio.", widget=forms.TextInput(attrs={'class' : 'form-control'}))
     valor_estoque  = forms.CharField(label = "3) Qual o valor de estoque? (acabado ou insumo por local).", widget=forms.TextInput(attrs={'class' : 'form-control'}))
@@ -48,6 +48,7 @@ class EmpresarialQuestForm(forms.ModelForm):
     class Meta:
         model = EmpresarialQuest
         fields = (
+        "cliente",
        "risco_cep",
        "area_predios",
        "valor_estoque",
