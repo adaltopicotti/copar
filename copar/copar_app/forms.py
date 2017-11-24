@@ -1,5 +1,6 @@
 from django import forms
 from .models import EmpresarialQuest
+from django.utils import timezone
 from bootstrap_toolkit.widgets import BootstrapDateInput, BootstrapTextInput, BootstrapUneditableInput
 
 
@@ -43,7 +44,7 @@ class EmpresarialQuestForm(forms.ModelForm):
     historico_acidente  = forms.CharField(label = "34) Qual a história de acidentes? Qual valor de prejuízo de cada um destes acidentes? O que foi feito para evitar novos acidentes?", widget=forms.TextInput(attrs={'class' : 'form-control'}))
     cob_ultimo_seguro  = forms.CharField(label = "35) Qual o valor e coberturas do último seguro (mandar cópia da apólice se for possível)?", widget=forms.TextInput(attrs={'class' : 'form-control'}))
     seguro_negado  = forms.CharField(label = "36) Já teve alguma proposta de seguro negada, ou participou de algum processo de cotação nos últimos 06 meses?", widget=forms.TextInput(attrs={'class' : 'form-control'}))
-    insert_date = forms.DateTimeField()
+    insert_date = forms.DateTimeField(value = timezone.now())
 
     class Meta:
         model = EmpresarialQuest
