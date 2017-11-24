@@ -1,13 +1,31 @@
 {% extends 'copar/base.html' %}
 
 {% block content %}
-    {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %}
+<div class"panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Protocolo</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">Data de inclusão</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for quest in quests %}
+            <tr>
+              <th scope="row"><a href="#">{{quest.id}}</a></th>
+              <td>{{ quest.cliente }}</td>
+              <td> {{ quest.insert_date|date:"d/m/Y" }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

@@ -6,20 +6,26 @@ from .forms import EmpresarialQuestForm
 def home(request):
     return render(request, "copar/home.html", {"date":timezone.now()})
 
-def questionnaire_emp(request):
+def emp_questionnaire(request):
 
     if request.method == "POST":
         form = EmpresarialQuestForm(request.POST)
         if form.is_valid():
-            form.insert_date = timezone.now()
-            form.save()
+            last_reg = EmpresarialQuest.objects.last()
+            new = form.save(commit=False)
+            new.id = last_reg.id + 1
+            new.insert_date = timezone.now()
+            new.save()
             return HttpResponseRedirect("/") # redireciona para a tela de login
         else:
             # mostra novamente o formulario de cadastro com os erros do formulario atual
             return render(request, "copar/quest_emp.html", {"form": form})
     return render(request, 'copar/quest_emp.html', {"form": EmpresarialQuestForm})
 
-
+def emp_list(request):
+    quest = EmpresarialQuest.objects.filter(insert_date__lte=timezone.now()).order_by('-insert_date')
+    recent_quest = EmpresarialQuest.objects.filter(insert_date__lte=timezone.now()).order_by('-insert_date')[:3]
+    return render(request, 'copar/list_emp.html', {'quests': quest, 'recent_quests': recent_quest})
 
 def new_edit(request, pk):
     new = get_object_or_404(New, pk=pk)
