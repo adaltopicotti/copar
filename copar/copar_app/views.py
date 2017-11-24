@@ -11,7 +11,7 @@ def questionnaire_emp(request):
     if request.method == "POST":
         form = EmpresarialQuestForm(request.POST)
         if form.is_valid():
-            form.insert_date = timezone.now()
+            form.insert_date = datetime.now()
             form.save()
             return HttpResponseRedirect("/") # redireciona para a tela de login
         else:
