@@ -19,6 +19,7 @@ def questionnaire_emp(request):
     return render(request, 'copar/quest_emp.html', {"form": EmpresarialQuestForm})
 
 
+
 def new_edit(request, pk):
     new = get_object_or_404(New, pk=pk)
     if request.method == "POST":
