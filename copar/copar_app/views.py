@@ -17,7 +17,7 @@ def questionnaire_emp(request):
         else:
             # mostra novamente o formulario de cadastro com os erros do formulario atual
             return render(request, "copar/quest_emp.html", {"form": form})
-
+    EmpresarialQuestForm.insert_date = timezone.now()
     return render(request, 'copar/quest_emp.html', {"form": EmpresarialQuestForm})
 
 
