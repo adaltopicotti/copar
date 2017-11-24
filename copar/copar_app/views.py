@@ -10,7 +10,7 @@ def questionnaire_emp(request):
     if request.method == "POST":
         form = EmpresarialQuestForm(request.POST)
         if form.is_valid():
-            form.save()
+            form.publish()
             return HttpResponseRedirect("/") # redireciona para a tela de login
         else:
             # mostra novamente o formulario de cadastro com os erros do formulario atual
