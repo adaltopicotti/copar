@@ -14,9 +14,9 @@ def questionnaire(request):
             return HttpResponseRedirect("/") # redireciona para a tela de login
         else:
             # mostra novamente o formulario de cadastro com os erros do formulario atual
-            return render(request, "copar/empresarial.html", {"form": form})
+            return render(request, "copar/quest_emp.html", {"form": form})
 
-    return render(request, 'copar/empresarial.html', {"form": EmpresarialQuestForm})
+    return render(request, 'copar/quest_emp.html', {"form": EmpresarialQuestForm})
 
 
 def new_edit(request, pk):
