@@ -18,7 +18,7 @@ def questionnaire_emp(request):
             # mostra novamente o formulario de cadastro com os erros do formulario atual
             return render(request, "copar/quest_emp.html", {"form": form})
 
-    return render(request, 'copar/quest_emp.html', {})
+    return render(request, 'copar/quest_emp.html', {"form": EmpresarialQuestForm})
 
 
 
