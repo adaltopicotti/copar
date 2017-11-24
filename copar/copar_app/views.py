@@ -7,7 +7,7 @@ def home(request):
     return render(request, "copar/home.html", {})
 
 def questionnaire_emp(request):
-
+    form = get_object_or_404(EmpresarialQuestForm)
     if request.method == "POST":
         form = EmpresarialQuestForm(request.POST)
         if form.is_valid():
@@ -17,8 +17,8 @@ def questionnaire_emp(request):
         else:
             # mostra novamente o formulario de cadastro com os erros do formulario atual
             return render(request, "copar/quest_emp.html", {"form": form})
-
-    return render(request, 'copar/quest_emp.html', {"form": EmpresarialQuestForm})
+    form.insert_date = timezone.now()
+    return render(request, 'copar/quest_emp.html', {"form": form})
 
 
 
