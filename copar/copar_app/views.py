@@ -7,7 +7,7 @@ def home(request):
     return render(request, "copar/home.html", {})
 
 def questionnaire_emp(request):
-    form = get_object_or_404(EmpresarialQuestForm)
+    form = get_object_or_404(EmpresarialQuestForm())
     if request.method == "POST":
         form = EmpresarialQuestForm(request.POST)
         if form.is_valid():
