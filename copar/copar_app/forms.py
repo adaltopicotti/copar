@@ -1,6 +1,5 @@
 from django import forms
 from .models import EmpresarialQuest
-from django.utils import timezone
 from bootstrap_toolkit.widgets import BootstrapDateInput, BootstrapTextInput, BootstrapUneditableInput
 
 
