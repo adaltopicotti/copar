@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-import datetime
 from .models import EmpresarialQuest
 from .forms import EmpresarialQuestForm
 # Create your views here.
@@ -12,7 +11,7 @@ def questionnaire_emp(request):
     if request.method == "POST":
         form = EmpresarialQuestForm(request.POST)
         if form.is_valid():
-            form.insert_date = datetime.now()
+            form.insert_date = timezone.now()
             form.save()
             return HttpResponseRedirect("/") # redireciona para a tela de login
         else:
