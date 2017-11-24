@@ -2,10 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import EmpresarialQuest
 from .forms import EmpresarialQuestForm
 # Create your views here.
-def questionnaire2(request):
-    return 'teste'
+def home(request):
+    return render(request, "copar/base.html", {})
 
-def questionnaire(request):
+def questionnaire_emp(request):
 
     if request.method == "POST":
         form = EmpresarialQuestForm(request.POST)
