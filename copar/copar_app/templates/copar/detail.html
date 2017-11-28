@@ -15,13 +15,11 @@
             </tr>
           </thead>
           <tbody>
-            {% for quest in quests %}
             <tr>
-              <th scope="row"><a href="#">{{quest.id}}</a></th>
-              <td>{{ quest.cliente }}</td>
-              <td> {{ quest.insert_date|date:"d/m/Y" }}</td>
+              <th scope="row"><a href="#">{{emp_prop.id}}</a></th>
+              <td>{{ emp_prop.cliente }}</td>
+              <td> {{ emp_prop.insert_date|date:"d/m/Y" }}</td>
             </tr>
-            {% endfor %}
           </tbody>
         </table>
       </div>
