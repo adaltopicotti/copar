@@ -16,7 +16,7 @@ def emp_list(request):
 def emp_detail(request, pk):
     emp_prop = get_object_or_404(EmpresarialQuest, pk=pk)
     recent_emp_prop = EmpresarialQuest.objects.filter(insert_date__lte=timezone.now()).order_by('-insert_date')[:3]
-    return render(request, 'copar/detail.html', {'quests': emp_prop})
+    return render(request, 'copar/detail.html', {'emp_prop': emp_prop})
 
 
 
