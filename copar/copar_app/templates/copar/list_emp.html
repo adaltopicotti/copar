@@ -17,8 +17,7 @@
           <tbody>
             {% for quest in quests %}
             <tr>
-              <th scope="row"><a href="#">{{quest.id}}</a></th>
-              <td>{{ quest.cliente }}</td>
+              <th scope="row"><a href="{% url 'emp_detail' pk=quest.pk %}">{{quest.id}}</a></th>
               <td> {{ quest.insert_date|date:"d/m/Y" }}</td>
             </tr>
             {% endfor %}
