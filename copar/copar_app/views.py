@@ -6,6 +6,20 @@ from .forms import EmpresarialQuestForm
 def home(request):
     return render(request, "copar/home.html", {"date":timezone.now()})
 
+
+def emp_list(request):
+    emp_prop = EmpresarialQuest.objects.filter(insert_date__lte=timezone.now()).order_by('-insert_date')
+    recent_emp_prop = EmpresarialQuest.objects.filter(insert_date__lte=timezone.now()).order_by('-insert_date')[:3]
+    return render(request, 'copar/list_emp.html', {'quests': emp_prop, 'recent_quests': recent_emp_prop})
+
+
+def emp_detail(request, pk):
+    emp_prop = get_object_or_404(EmpresarialQuest, pk=pk)
+    recent_emp_prop = EmpresarialQuest.objects.filter(insert_date__lte=timezone.now()).order_by('-insert_date')[:3]
+    return render(request, 'copar/detail.html', {'quests': emp_prop, 'recent_emp_prop': recent_emp_prop})
+
+
+
 def emp_questionnaire(request):
 
     if request.method == "POST":
@@ -22,10 +36,6 @@ def emp_questionnaire(request):
             return render(request, "copar/quest_emp.html", {"form": form})
     return render(request, 'copar/quest_emp.html', {"form": EmpresarialQuestForm})
 
-def emp_list(request):
-    quest = EmpresarialQuest.objects.filter(insert_date__lte=timezone.now()).order_by('-insert_date')
-    recent_quest = EmpresarialQuest.objects.filter(insert_date__lte=timezone.now()).order_by('-insert_date')[:3]
-    return render(request, 'copar/list_emp.html', {'quests': quest, 'recent_quests': recent_quest})
 
 def new_edit(request, pk):
     new = get_object_or_404(New, pk=pk)
